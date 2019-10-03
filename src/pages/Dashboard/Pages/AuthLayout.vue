@@ -1,6 +1,6 @@
 <template>
   <div class="full-page" :class="{ 'nav-open': $sidebar.showSidebar }">
-    <md-toolbar md-elevation="0" class="md-transparent md-toolbar-absolute">
+    <!-- <md-toolbar md-elevation="0" class="md-transparent md-toolbar-absolute">
       <div class="md-toolbar-row md-offset">
         <div class="md-toolbar-section-start">
           <h3 class="md-title">{{ $route.name }}</h3>
@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-    </md-toolbar>
+    </md-toolbar> -->
     <div class="wrapper wrapper-full-page" @click="toggleSidebarPage">
       <div
         class="page-header header-filter"
@@ -61,7 +61,7 @@
             <router-view></router-view>
           </zoom-center-transition>
         </div>
-        <footer class="footer">
+        <!-- <footer class="footer">
           <div class="container md-offset">
             <nav>
               <ul>
@@ -94,7 +94,7 @@
               >, made with <i class="fa fa-heart heart"></i> for a better web
             </div>
           </div>
-        </footer>
+        </footer> -->
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import DashboardLayout from "@/pages/Dashboard/Layout/DashboardLayout.vue";
-// import AuthLayout from "@/pages/Dashboard/Pages/AuthLayout.vue";
+import AuthLayout from "@/pages/Dashboard/Pages/AuthLayout.vue";
 
 // // Dashboard pages
 import Dashboard from "@/pages/Dashboard/Dashboard.vue";
@@ -9,7 +9,7 @@ import Dashboard from "@/pages/Dashboard/Dashboard.vue";
 // import Pricing from "@/pages/Dashboard/Pages/Pricing.vue";
 // import TimeLine from "@/pages/Dashboard/Pages/TimeLinePage.vue";
 // import RtlSupport from "@/pages/Dashboard/Pages/RtlSupport.vue";
-// import Login from "@/pages/Dashboard/Pages/Login.vue";
+import Login from "@/pages/Dashboard/Pages/Login.vue";
 // import Register from "@/pages/Dashboard/Pages/Register.vue";
 // import Lock from "@/pages/Dashboard/Pages/Lock.vue";
 
@@ -196,16 +196,19 @@ import Dashboard from "@/pages/Dashboard/Dashboard.vue";
 //   ]
 // };
 
-// let authPages = {
-//   path: "/",
-//   component: AuthLayout,
-//   name: "Authentication",
-//   children: [
-//     {
-//       path: "/login",
-//       name: "Login",
-//       component: Login
-//     },
+let authPages = {
+  path: "/",
+  component: AuthLayout,
+  name: "Authentication",
+  children: [
+    {
+      path: "/login",
+      name: "Login",
+      component: Login
+    }
+  ]
+};
+
 //     {
 //       path: "/register",
 //       name: "Register",
@@ -228,14 +231,15 @@ const routes = [
   {
     path: "/",
     redirect: "/dashboard",
-    name: "Home"
+    name: "Home",
+    meta: { requiresAuth: true }
   },
   // componentsMenu,
   // formsMenu,
   // tablesMenu,
   // mapsMenu,
   // pagesMenu,
-  // authPages,
+  authPages,
   {
     path: "/",
     component: DashboardLayout,
@@ -243,7 +247,8 @@ const routes = [
       {
         path: "dashboard",
         name: "Dashboard",
-        components: { default: Dashboard }
+        components: { default: Dashboard },
+        meta: { requiresAuth: true }
       }
       // {
       //   path: "calendar",

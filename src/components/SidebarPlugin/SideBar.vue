@@ -6,7 +6,7 @@
     :data-background-color="backgroundColor"
     :style="sidebarStyle"
   >
-    <div class="logo">
+    <!-- <div class="logo">
       <a
         href="https://www.creative-tim.com"
         class="simple-text logo-mini"
@@ -39,11 +39,11 @@
           >
         </md-button>
       </div>
-    </div>
+    </div> -->
     <div class="sidebar-wrapper" ref="sidebarScrollArea">
       <slot></slot>
       <md-list class="nav">
-        <slot name="links">
+        <!-- <slot name="links">
           <sidebar-item
             v-for="(link, index) in sidebarLinks"
             :key="link.name + index"
@@ -56,7 +56,7 @@
             >
             </sidebar-item>
           </sidebar-item>
-        </slot>
+        </slot> -->
       </md-list>
     </div>
   </div>
@@ -67,7 +67,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Vue MD PRO"
+      default: "SA ADMIN"
     },
     rtlTitle: {
       type: String,

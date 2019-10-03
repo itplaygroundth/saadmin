@@ -25,6 +25,11 @@
           <ul class="nav">
             <slot>
               <li>
+                <a href="#" @click="Logout">
+                  <span class="sidebar-normal">Logout</span>
+                </a>
+              </li>
+              <!-- <li>
                 <a v-if="$route.meta.rtlActive" href="#vue">
                   <span class="sidebar-mini">مع</span>
                   <span class="sidebar-normal">ملف</span>
@@ -53,7 +58,7 @@
                   <span class="sidebar-mini">S</span>
                   <span class="sidebar-normal">Settings</span>
                 </a>
-              </li>
+              </li> -->
             </slot>
           </ul>
         </div>
@@ -69,23 +74,31 @@ export default {
     CollapseTransition
   },
   props: {
-    title: {
-      type: String,
-      default: "Tania Andrew"
-    },
+    // title: {
+    //   type: String,
+    //   default: "Tania Andrew"
+    // },
     rtlTitle: {
       type: String,
       default: "تانيا أندرو"
-    },
-    avatar: {
-      type: String,
-      default: "./img/faces/avatar.jpg"
     }
+    // avatar: {
+    //   type: String,
+    //   default: "./img/faces/avatar.jpg"
+    // }
   },
   data() {
     return {
       isClosed: true
     };
+  },
+  computed: {
+    title() {
+      return this.$session.get("facebook").fullName;
+    },
+    avatar() {
+      return this.$session.get("facebook").profileImage;
+    }
   },
   methods: {
     clicked: function(e) {
@@ -93,6 +106,12 @@ export default {
     },
     toggleMenu: function() {
       this.isClosed = !this.isClosed;
+    },
+    Logout() {
+      this.$store.set("isLogged", false);
+      this.$store.set("facebook", false);
+      this.$session.destroy();
+      this.$router.replace("/login");
     }
   }
 };

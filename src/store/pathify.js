@@ -1,6 +1,6 @@
 import pathify from "vuex-pathify";
-export default pathify;
 
-// options
-pathify.options.mapping = "simple";
-pathify.options.deep = false;
+pathify.options.mapping = "standard";
+pathify.options.deep = 2;
+
+export default pathify;
